@@ -28,6 +28,23 @@ app.post('/user', (req, res) =>{
     })
 })
 
+app.get('/users', (req, res) => {
+  console.log('Users Page');
+
+  const users = [
+    {
+      "username":"markos",
+      "email":"marka@aueb.gr"
+    },
+    {
+      "username":"thanasis",
+      "email":"thanasis@aueb.gr"
+    }
+  ]
+
+  res.render("users", {users});
+})
+
 app.listen(port, () =>{
   console.log('Server is up!');
 })

@@ -6,7 +6,7 @@ const { verify } = require('jsonwebtoken');
 const verifyToken = require('../middlewares/auth.middleware').verifyToken;
 const verifyRoles = require('../middlewares/auth.middleware').verifyRoles;
 
-router.get('/', userController.findAll);
+router.get('/',verifyToken, userController.findAll);
 router.get('/:username', userController.findOne);
 router.post('/', verifyToken, verifyRoles("ADMIN"), userController.create);
 // router.post('/', userController.create);
